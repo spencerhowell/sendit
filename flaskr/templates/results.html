@@ -1,28 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>
-        <title>Reusable Form Demo</title>
-       <link rel="stylesheet" media="screen" href ="static/bootstrap/css/bootstrap.min.css">
-       <link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.min.css">
-       <meta name="viewport" content = "width=device-width, initial-scale=1.0">
- 
-    </head>
-    <body>
- 
- 
+
+<head>
+    <title>Reusable Form Demo</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Trueno" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
 <div class="container">
-    <h2>Your Senators</h2>
-    <div class="row">
-        <div class="column">
-            <img src={{s1.pic}} style="width:400px;height:400px">
-            <h3>{{s1.name}}</h3>
-            <p>Galatic Republic</p>
+  <div id="content" class="section text-center">
+    <div id="portfolio" class="section text-center">
+      <h1>Your Senators</h1>
+      <div class="row">
+        <div class="col image">
+          <p2><img class="img-fluid" src={{s1.pic}}></p2>
+          <p2>Senator {{s1.name}} 
+            <br>{{s1.party}}</br>
+          </p2>
+              <a class="btn btn-block btn-info" href={{s1.contact_me}} target="_blank"><strong><i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>&nbsp;E-Mail</strong></a>
+        <a class="btn btn-block btn-info" href={{s1.facebook}} target="_blank"><strong><i class="fa  fa-facebook
+ fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Facebook</strong></a>
+        <a class="btn btn-block btn-info" href={{s1.twitter}} target="_blank"><strong><i class="fa fa-twitter fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Twitter</strong></a>
+        <a class="btn btn-block btn-info" href="mailto:moss.william711@gmail.com" target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
         </div>
-        <div class="column"><img src={{s2.pic}} style="width:400px;height:400px"></div>
-    </div>
-</div>
-<br>      
-</div>
+        <div class="col image">
+          <p2><img class="img-fluid" src={{s2.pic}}></p2>
+          <p2>Senator {{s2.name}}
+            <br>{{s2.party}}</br>
+          </p2>
+              <a class="btn btn-block btn-info" href={{s2.contact_me}} target="_blank"><strong><i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>&nbsp;E-Mail</strong></a>
+        <a class="btn btn-block btn-info" href={{s2.facebook}} target="_blank"><strong><i class="fa  fa-facebook
+ fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Facebook</strong></a>
+        <a class="btn btn-block btn-info" href={{s2.twitter}} target="_blank"><strong><i class="fa fa-twitter fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Twitter</strong></a>
+        <a class="btn btn-block btn-info" href="mailto:moss.william711@gmail.com" target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
+        </div>
+      </div>
+      </div>
+  </div>
 </div>
 </body>
+
 </html>

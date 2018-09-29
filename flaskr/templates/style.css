@@ -1,0 +1,28 @@
+body{
+  background-color: #c7dbf9;
+}
+.section {
+  padding: 0.5%;
+  border-radius: 5px;
+  background-color: #6495ED;
+  color: #4B0082;
+  font-family: Helvetica;
+  margin: 2%;
+}
+
+img{
+  border-radius: 10px;
+}
+
+.btn{
+  padding: 1%;
+  font-family: Arial;
+}
+
+p1{
+  font-family: Verdana;
+}
+
+.image {
+  margin: 1%
+}
