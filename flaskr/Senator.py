@@ -54,7 +54,7 @@ class Senate:
         return currentSenator
 
 ourSenate = Senate(100, None)
-with open('us-senate.csv') as csvfile:
+with open('flaskr/static/us-senate.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         name = row['last_name']
@@ -67,4 +67,3 @@ with open('us-senate.csv') as csvfile:
 Georgia = ourSenate.findSentaors("Georgia")
 print(Georgia.getSenatorNum(1).name)
 print(Georgia.getSenatorNum(2).name)
-print(Georgia.size)
