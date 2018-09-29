@@ -29,6 +29,7 @@ def hello():
         if form.validate():
             # Save the comment here.
             flash('Hello ' + name)
+            return render_template('results.html')
         else:
             flash('All the form fields are required.')
  
