@@ -1,12 +1,14 @@
 import csv
 
 class Senator:
-    def __init__(self, name, state, contact_me, party, pic, next_senator=None):
+    def __init__(self, name, state, contact_me, party, pic, facebook, twitter, next_senator=None):
         self.name = name
         self.state = state
         self.contact_me = contact_me
         self.party = party
         self.pic = pic
+        self.facebook = facebook
+        self.twitter = twitter
         self.next_senator = next_senator
 
 class Senate:
@@ -57,17 +59,19 @@ class Senate:
         with open('./static/us-senate.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                name = row['last_name']
+                name = row['name']
                 state = row['state_name']
                 contact_me = row['contact_page']
                 party = row['party']
                 pic = row['photo_url']
-                senator1 = Senator(name, state, contact_me, party, pic)
+                facebook = row['facebook_url']
+                twitter = row['twitter_url']
+                senator1 = Senator(name, state, contact_me, party, pic, facebook, twitter)
                 self.addSenator(senator1)
 
 #TEST CODE
-#ourSenate = Senate(100, None)
-#ourSenate.populateFromCSV()
-#Georgia = ourSenate.findSenators("Georgia")
-#print(Georgia.getSenatorNum(1).name)
-#print(Georgia.getSenatorNum(2).name)
+ourSenate = Senate(100, None)
+ourSenate.populateFromCSV()
+Georgia = ourSenate.findSenators("Georgia")
+print(Georgia.getSenatorNum(1).name)
+print(Georgia.getSenatorNum(2).name)
