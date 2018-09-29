@@ -17,6 +17,7 @@ def hello():
  
     print form.errors
     if request.method == 'POST':
+
         name=request.form['name']
         print name
  
@@ -30,33 +31,3 @@ def hello():
  
 if __name__ == "__main__":
     app.run()
-We then create the template hello.html in the /templates/ directory:
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-    <head>
-        <title>Reusable Form Demo</title>
-    </head>
-    <body>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message[1] }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-        <form action="" method="post">
-            {{ form.csrf }}
- 
-            <div class="input text">
-                {{ form.name.label }} {{ form.name }}
-            </div>
- 
-            <div class="input submit">
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
-    </body>
-</html>
