@@ -65,8 +65,9 @@ class Senate:
                 senator1 = Senator(name, state, contact_me, party, pic)
                 self.addSenator(senator1)
 
-ourSenate = Senate(100, None)
-ourSenate.populateFromCSV()
-Georgia = ourSenate.findSenators("Georgia")
-print(Georgia.getSenatorNum(1).name)
-print(Georgia.getSenatorNum(2).name)
+#TEST CODE
+#ourSenate = Senate(100, None)
+#ourSenate.populateFromCSV()
+#Georgia = ourSenate.findSenators("Georgia")
+#print(Georgia.getSenatorNum(1).name)
+#print(Georgia.getSenatorNum(2).name)
