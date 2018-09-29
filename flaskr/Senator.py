@@ -1,7 +1,7 @@
 import csv
 
 class Senator:
-    def __init__(self, name, state, contact_me, party, pic, facebook, twitter, next_senator=None):
+    def __init__(self, name, state, contact_me, party, pic, facebook, twitter, bio, next_senator=None):
         self.name = name
         self.state = state
         self.contact_me = contact_me
@@ -9,6 +9,7 @@ class Senator:
         self.pic = pic
         self.facebook = facebook
         self.twitter = twitter
+        self.bio = bio
         self.next_senator = next_senator
 
 class Senate:
@@ -62,11 +63,12 @@ class Senate:
                 name = row['name']
                 state = row['state_name']
                 contact_me = row['contact_page']
-                party = row['party']
+                party = row['party'].capitalize
                 pic = row['photo_url']
                 facebook = row['facebook_url']
                 twitter = row['twitter_url']
-                senator1 = Senator(name, state, contact_me, party, pic, facebook, twitter)
+                bio = row['bioguide']
+                senator1 = Senator(name, state, contact_me, party, pic, facebook, twitter, bio)
                 self.addSenator(senator1)
 
 #TEST CODE
