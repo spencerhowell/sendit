@@ -53,17 +53,20 @@ class Senate:
             currentSenator = currentSenator.next_senator
         return currentSenator
 
+    def populateFromCSV(self):
+        with open('./static/us-senate.csv') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                name = row['last_name']
+                state = row['state_name']
+                contact_me = row['contact_page']
+                party = row['party']
+                pic = row['photo_url']
+                senator1 = Senator(name, state, contact_me, party, pic)
+                ourSenate.addSenator(senator1)
+
 ourSenate = Senate(100, None)
-with open('./static/us-senate.csv') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        name = row['last_name']
-        state = row['state_name']
-        contact_me = row['contact_page']
-        party = row['party']
-        pic = row['photo_url']
-        senator1 = Senator(name, state, contact_me, party, pic)
-        ourSenate.addSenator(senator1)
+ourSenate.populateFromCSV()
 Georgia = ourSenate.findSenators("Georgia")
 print(Georgia.getSenatorNum(1).name)
 print(Georgia.getSenatorNum(2).name)
