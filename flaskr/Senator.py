@@ -63,7 +63,7 @@ class Senate:
                 party = row['party']
                 pic = row['photo_url']
                 senator1 = Senator(name, state, contact_me, party, pic)
-                ourSenate.addSenator(senator1)
+                self.addSenator(senator1)
 
 ourSenate = Senate(100, None)
 ourSenate.populateFromCSV()
