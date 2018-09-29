@@ -28,7 +28,7 @@ class Senate:
             lastSenator = self.moveToLastSenator()
             lastSenator.next_senator = senator
 
-    def findSentaors(self, state):
+    def findSenators(self, state):
         foundSenators = 0
         currentSenator = self.firstSenator
         thisState = Senate(2)
@@ -54,7 +54,7 @@ class Senate:
         return currentSenator
 
 ourSenate = Senate(100, None)
-with open('flaskr/static/us-senate.csv') as csvfile:
+with open('./static/us-senate.csv') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         name = row['last_name']
@@ -64,6 +64,6 @@ with open('flaskr/static/us-senate.csv') as csvfile:
         pic = row['photo_url']
         senator1 = Senator(name, state, contact_me, party, pic)
         ourSenate.addSenator(senator1)
-Georgia = ourSenate.findSentaors("Georgia")
+Georgia = ourSenate.findSenators("Georgia")
 print(Georgia.getSenatorNum(1).name)
 print(Georgia.getSenatorNum(2).name)

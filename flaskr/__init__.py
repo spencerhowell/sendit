@@ -1,5 +1,6 @@
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, SelectField
+import Senator
  
 # App config.
 DEBUG = True
@@ -19,6 +20,8 @@ def reset(self):
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     form = ReusableForm(request.form)
+    image1 = "http://4.bp.blogspot.com/-CY9BB38dzss/VD25QaYDgmI/AAAAAAAAEqE/AhmiSvwndM0/s1600/Palp_trustme.jpg"
+    images = [image1, image1]
  
     print form.errors
     if request.method == 'POST':
@@ -29,7 +32,7 @@ def hello():
         if form.validate():
             # Save the comment here.
             flash('Hello ' + name)
-            return render_template('results.html')
+            return render_template('results.html', pics=images)
         else:
             flash('All the form fields are required.')
  
