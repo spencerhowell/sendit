@@ -63,7 +63,7 @@ class Senate:
                 name = row['name']
                 state = row['state_name']
                 contact_me = row['contact_page']
-                party = row['party'].capitalize
+                party = row['party'].capitalize()
                 pic = row['photo_url']
                 facebook = row['facebook_url']
                 twitter = row['twitter_url']
@@ -72,16 +72,8 @@ class Senate:
                 self.addSenator(senator1)
 
 #TEST CODE
-<<<<<<< HEAD
 #ourSenate = Senate(100, None)
 #ourSenate.populateFromCSV()
 #Georgia = ourSenate.findSenators("Georgia")
 #print(Georgia.getSenatorNum(1).name)
 #print(Georgia.getSenatorNum(2).name)
-=======
-# ourSenate = Senate(100, None)
-# ourSenate.populateFromCSV()
-# Georgia = ourSenate.findSenators("Georgia")
-# print(Georgia.getSenatorNum(1).name)
-# print(Georgia.getSenatorNum(2).name)
->>>>>>> bf3cac4fb6e1af67e2c1e058a8e7b5309699f9a9
