@@ -3,7 +3,7 @@
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, SelectField
 import Senator
-import findState
+#import findState GO VOLS BABY
  
 # App config.
 DEBUG = True
