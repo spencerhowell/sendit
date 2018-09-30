@@ -67,7 +67,7 @@ class Senate:
                 pic = row['photo_url']
                 facebook = row['facebook_url']
                 twitter = row['twitter_url']
-                bio = row['bioguide']
+                bio = "http://bioguide.congress.gov/scripts/biodisplay.pl?index=" + row['bioguide']
                 senator1 = Senator(name, state, contact_me, party, pic, facebook, twitter, bio)
                 self.addSenator(senator1)
 
