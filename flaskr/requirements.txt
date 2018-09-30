@@ -1,0 +1,5 @@
+# File: requirements.txt
+
+flask==1.0.2
+wtforms==2.2.1
+urllib3==1.23
