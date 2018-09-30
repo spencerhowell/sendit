@@ -37,7 +37,7 @@ def reset(self):
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     print("Hello world!")
-    state = findState.getState()
+    state = "Tennessee"
     form = ReusableForm(request.form)
 
     # Used for error checking input
@@ -58,7 +58,7 @@ def hello():
             flash('Please enter a valid state')
         
     if (not isValidState(state)):
-        state = findState.getState()
+        state = "Tennessee"
         flash('Please enter a valid state')
 
     ourSenate = Senator.Senate(100, None)
