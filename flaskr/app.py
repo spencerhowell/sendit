@@ -1,9 +1,10 @@
 # File: app.py
 
+from flask_app import app as application
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField, SelectField
 import Senator
-#import findState GO VOLS BABY
+#import findState GO VOLS
  
 # App config.
 DEBUG = True
@@ -70,5 +71,5 @@ def hello():
 
     return render_template('results.html', form=form, s1=senatorOne, s2=senatorTwo, state=state)
  
-if __name__ == "__main__":
-    app.run()
+#if __name__ == "__main__":
+    #app.run()
