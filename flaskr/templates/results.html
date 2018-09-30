@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 
 <head>
@@ -5,11 +7,11 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Trueno" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
+<body style="background-color:#c7dbf9; margin:3%">
 <div class="container">
   <div id="content" class="section text-center">
     <div id="portfolio" class="section text-center">
@@ -17,7 +19,7 @@
       <h1>State of {{state}}</h1>
       <div class="row">
         <div class="col image">
-          <h2><img class="img-fluid" src={{s1.pic}}></h2>
+          <h2><img class="img-fluid" src={{s1.pic}} style="border-radius: 10px"></h2>
           <h2>Senator {{s1.name}} 
             <br>{{s1.party}}
           </h2>
@@ -28,7 +30,7 @@
         <a class="btn btn-block btn-info" href={{s1.bio}} target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
         </div>
         <div class="col image">
-          <h2><img class="img-fluid" src={{s2.pic}}></h2>
+          <h2><img class="img-fluid" id="bootstrap-overrides" src={{s2.pic}} style="border-radius: 10px"></h2>
           <h2>Senator {{s2.name}}
             <br>{{s2.party}}
           </h2>
@@ -49,7 +51,9 @@
       <label for="new-state">Try Another State:</label>
       <input type="text" class="form-control" id="new-state" name="new-state" placeholder="Type full state name">
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-info">Submit</button>
+    <br>
+
   </form>
 
 </div>

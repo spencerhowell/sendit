@@ -41,7 +41,7 @@ def hello():
         state = request.form['new-state']
 
         # ADD ERROR CHECKING CONDITION
-        if form.validate(): # AND state is valid
+        if form.validate(): # AND state input is valid
             # Save the comment here.
             return render_template('results.html', form=form, s1=senatorOne, s2=senatorTwo, state=state)
         else:
