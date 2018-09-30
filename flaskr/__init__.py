@@ -21,34 +21,40 @@ def reset(self):
 @app.route("/", methods=['GET', 'POST'])
 def hello():
     print("Hello world!")
+    state = findState.getState()
     form = ReusableForm(request.form)
 
-    state = findState.getState()
-    print("We are in " + state)
-        
-    ourSenate = Senator.Senate(100, None)
-    ourSenate.populateFromCSV()
-    
-    
-    senators = ourSenate.findSenators(state)
-    senatorOne = senators.getSenatorNum(1)
-    senatorTwo = senators.getSenatorNum(2)
+# Used for error checking input
+    STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
+  "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
+  "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
+  "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
+  "Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York",
+  "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah",
+  "Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+
 #    print(senatorOne.name + " " + senatorTwo.name)
  
     print form.errors
     if request.method == 'POST':
-        name=request.form['name']
-#        state = request.form['state']
-        print name
- 
-        if form.validate():
+        state = request.form['new-state']
+
+        # ADD ERROR CHECKING CONDITION
+        if form.validate(): # AND state is valid
             # Save the comment here.
-            flash('Hello ' + name)
-            return render_template('results.html', s1=senatorOne, s2=senatorTwo)
+            return render_template('results.html', form=form, s1=senatorOne, s2=senatorTwo, state=state)
         else:
-            flash('All the form fields are required.')
- 
-    return render_template('hello.html', form=form)
+            flash('Please enter a valid state')
+        
+    ourSenate = Senator.Senate(100, None)
+    ourSenate.populateFromCSV()
+    
+    senators = ourSenate.findSenators(state)
+    senatorOne = senators.getSenatorNum(1)
+    senatorTwo = senators.getSenatorNum(2)
+
+    return render_template('results.html', form=form, s1=senatorOne, s2=senatorTwo, state=state)
  
 if __name__ == "__main__":
     app.run()

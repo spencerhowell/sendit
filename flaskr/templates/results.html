@@ -5,10 +5,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Trueno" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -16,6 +14,7 @@
   <div id="content" class="section text-center">
     <div id="portfolio" class="section text-center">
       <h1>Your Senators</h1>
+      <h1>State of {{state}}</h1>
       <div class="row">
         <div class="col image">
           <h2><img class="img-fluid" src={{s1.pic}}></h2>
@@ -26,7 +25,7 @@
         <a class="btn btn-block btn-info" href={{s1.facebook}} target="_blank"><strong><i class="fa  fa-facebook
  fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Facebook</strong></a>
         <a class="btn btn-block btn-info" href={{s1.twitter}} target="_blank"><strong><i class="fa fa-twitter fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Twitter</strong></a>
-        <a class="btn btn-block btn-info" href="mailto:moss.william711@gmail.com" target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
+        <a class="btn btn-block btn-info" href={{s1.bio}} target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
         </div>
         <div class="col image">
           <h2><img class="img-fluid" src={{s2.pic}}></h2>
@@ -37,11 +36,22 @@
         <a class="btn btn-block btn-info" href={{s2.facebook}} target="_blank"><strong><i class="fa  fa-facebook
  fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Facebook</strong></a>
         <a class="btn btn-block btn-info" href={{s2.twitter}} target="_blank"><strong><i class="fa fa-twitter fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Twitter</strong></a>
-        <a class="btn btn-block btn-info" href="mailto:moss.william711@gmail.com" target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
+        <a class="btn btn-block btn-info" href={{s2.bio}} target="_blank"><strong><i class="fa fa-book fa-lg fa-fw" aria-hidden="true"></i>&nbsp;Biography</strong></a>
         </div>
       </div>
       </div>
   </div>
+
+  <br>
+  <form  action="" method="post" role="form">
+    {{ form.csrf }}
+    <div class="form-group">
+      <label for="new-state">Try Another State:</label>
+      <input type="text" class="form-control" id="new-state" name="new-state" placeholder="Type full state name">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
 </div>
 </body>
 
