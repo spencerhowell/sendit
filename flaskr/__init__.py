@@ -25,14 +25,7 @@ def hello():
     form = ReusableForm(request.form)
 
 # Used for error checking input
-    STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
-  "Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois",
-  "Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
-  "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana",
-  "Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York",
-  "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
-  "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah",
-  "Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+
 
 #    print(senatorOne.name + " " + senatorTwo.name)
  
@@ -41,7 +34,7 @@ def hello():
         state = request.form['new-state']
 
         # ADD ERROR CHECKING CONDITION
-        if form.validate(): # AND state is valid
+        if (form.validate() & isValidState(state)): # AND state is valid
             # Save the comment here.
             return render_template('results.html', form=form, s1=senatorOne, s2=senatorTwo, state=state)
         else:
@@ -58,3 +51,17 @@ def hello():
  
 if __name__ == "__main__":
     app.run()
+
+def isValidState(state):
+    STATES = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+              "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
+              "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+              "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+              "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York",
+              "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+              "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+              "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+    for i in range(len(STATES)):
+        if state == STATES[i]:
+            return True
+    return False
